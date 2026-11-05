@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Barangay Abang resident dashboard.">
+    <title>Barangay Abang - Dashboard</title>
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="../../js/supabase-client.js" defer></script>
+    <script src="../../js/dashboard.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ===================== Site header ===================== -->
+    <header class="navbar">
+      <a class="brand" href="#home">
+        <span class="logo" aria-hidden="true">BA</span>
+        <span>Barangay Abang</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <ul>
+          <li><a href="#home" data-nav="home">Home</a></li>
+          <li><a href="#announcements" data-nav="announcements">Announcements</a></li>
+          <li id="dashboardNavItem" hidden><a href="#dashboard" data-nav="dashboard">My Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div id="guestNav" class="nav-actions">
+        <a class="btn-outline" href="#login">Log In</a>
+        <a class="btn-primary" href="#signup">Sign Up</a>
+      </div>
+
+      <div id="userNav" class="nav-actions" hidden>
+        <span id="welcomeText"></span>
+        <button class="btn-outline" id="logoutBtn" type="button">Log Out</button>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <!-- ===================== Home ===================== -->
+      <section id="home" class="page active" aria-labelledby="homeTitle">
+        <header class="hero">
+          <h1 id="homeTitle">Welcome to Barangay Abang!</h1>
+          <p>
+            Access barangay services, community announcements, and local
+            information.
+          </p>
+          <a class="btn-primary" href="#signup">Create an Account</a>
+        </header>
+
+        <nav aria-label="Public services">
+          <ul class="cards">
+            <li>
+              <a class="card" href="#announcements">
+                <span aria-hidden="true">📢</span>
+                <h2>Announcements</h2>
+                <p>Read the latest community updates.</p>
+              </a>
+            </li>
+            <li>
+              <a class="card" href="#dashboard">
+                <span aria-hidden="true">📄</span>
+                <h2>Document Services</h2>
+                <p>Log in to request barangay documents.</p>
+              </a>
+            </li>
+            <li>
+              <a class="card" href="#dashboard">
+                <span aria-hidden="true">💬</span>
+                <h2>Community Concerns</h2>
+                <p>Log in to submit your concerns.</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- ===================== Log in ===================== -->
+      <section id="login" class="page" aria-labelledby="loginTitle">
+        <article class="form-card">
+          <h1 id="loginTitle">Log In</h1>
+          <p>Use your Barangay Abang account.</p>
+
+          <form id="loginForm" novalidate>
+            <label for="loginEmail">Username or email</label>
+            <input id="loginEmail" name="identifier" type="text" autocomplete="username" required>
+
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+
+            <button class="btn-primary full" type="submit">Log In</button>
+            <p id="loginMessage" class="message" role="status" aria-live="polite"></p>
+          </form>
+
+          <p class="switch-form">
+            No account yet? <a class="text-btn" href="#signup">Sign up</a>
+          </p>
+        </article>
+      </section>
+
+      <!-- ===================== Sign up ===================== -->
+      <section id="signup" class="page" aria-labelledby="signupTitle">
+        <article class="form-card">
+          <h1 id="signupTitle">Create an Account</h1>
+          <p>Register to use barangay online services.</p>
+
+          <form id="signupForm" novalidate>
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+
+            <label for="signupUsername">Username</label>
+            <input id="signupUsername" name="username" type="text" autocomplete="username" required>
+
+            <label for="signupEmail">Email address</label>
+            <input id="signupEmail" name="email" type="email" autocomplete="email" required>
+
+            <label for="signupPassword">Password</label>
+            <input id="signupPassword" name="password" type="password" autocomplete="new-password" minlength="8" required>
+
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" required>
+
+            <button class="btn-primary full" type="submit">Sign Up</button>
+            <p id="signupMessage" class="message" role="status" aria-live="polite"></p>
+          </form>
+
+          <p class="switch-form">
+            Already registered? <a class="text-btn" href="#login">Log in</a>
+          </p>
+        </article>
+      </section>
+
+      <!-- ===================== Dashboard (signed in) ===================== -->
+      <section id="dashboard" class="page" aria-labelledby="dashboardTitle">
+        <header class="hero">
+          <h1 id="dashboardTitle">My Dashboard</h1>
+          <p>You are now logged in to Barangay Abang.</p>
+        </header>
+
+        <nav aria-label="Dashboard services">
+          <ul class="cards">
+            <li>
+              <a class="card" href="../user/index.html#documents">
+                <span aria-hidden="true">📄</span>
+                <h2>Document Services</h2>
+                <p>Request and track barangay documents.</p>
+              </a>
+            </li>
+            <li>
+              <a class="card" href="../user/index.html#complaints">
+                <span aria-hidden="true">💬</span>
+                <h2>Community Concerns</h2>
+                <p>Submit a concern and follow its status.</p>
+              </a>
+            </li>
+            <li>
+              <a class="card" href="#announcements">
+                <span aria-hidden="true">📢</span>
+                <h2>Announcements</h2>
+                <p>Stay informed about community activities.</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- ===================== Announcements ===================== -->
+      <section id="announcements" class="page" aria-labelledby="announcementsTitle">
+        <header class="hero">
+          <h1 id="announcementsTitle">Latest Announcements</h1>
+          <p>Official updates posted by the barangay.</p>
+        </header>
+        <ul id="announcementList" class="announcement-list">
+          <li class="card"><p>Loading announcements…</p></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p><small>© 2026 Barangay Abang, Lucban, Quezon</small></p>
+    </footer>
+  </body>
+</html>

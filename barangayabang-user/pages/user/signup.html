@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Create a Barangay Abang public portal account."
+    >
+    <title>Sign Up — Barangay Abang</title>
+    <link rel="stylesheet" href="../../css/user.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div id="app">
+      <main class="main" id="main">
+        <p class="empty">Loading sign-up form…</p>
+      </main>
+    </div>
+    <div id="modal"></div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-client.js"></script>
+    <script src="../../js/user.js"></script>
+    <script>window.setView('signup');</script>
+  </body>
+</html>

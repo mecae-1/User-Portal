@@ -1,0 +1,347 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #328bd1;
+  --dark: #174c7c;
+  --light: #edf7ff;
+  --text: #263849;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f6f9fc;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.navbar {
+  background: white;
+  padding: 16px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 10px #00000010;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: var(--blue);
+}
+
+.nav-links, #guestNav, #userNav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links button, .text-btn {
+  border: 0;
+  background: transparent;
+  color: var(--dark);
+  padding: 8px;
+}
+
+.btn-primary, .btn-outline {
+  padding: 10px 17px;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--dark);
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid var(--blue);
+  color: var(--dark);
+}
+
+main {
+  width: 88%;
+  max-width: 1100px;
+  min-height: 70vh;
+  margin: 35px auto;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.hero {
+  padding: 40px;
+  border-radius: 14px;
+  background: var(--light);
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  color: var(--dark);
+  font-size: clamp(26px, 4vw, 38px);
+  margin-bottom: 10px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.card {
+  display: block;
+  width: 100%;
+  padding: 23px;
+  text-align: left;
+  background: white;
+  color: var(--text);
+  border: 1px solid #e1eaf2;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+a.card:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.card span {
+  font-size: 30px;
+}
+
+.card h2 {
+  color: var(--dark);
+  font-size: 1.17em;
+  margin: 10px 0 5px;
+}
+
+.card p {
+  color: #68798a;
+  font-size: 14px;
+}
+
+.form-card {
+  max-width: 450px;
+  margin: 25px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 5px 25px #0000000d;
+}
+
+.form-card h1 {
+  color: var(--dark);
+}
+
+.form-card > p {
+  color: #68798a;
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+form input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd6e0;
+  border-radius: 7px;
+}
+
+form input:focus {
+  outline: 2px solid #b8e0ff;
+  border-color: var(--blue);
+}
+
+.full {
+  width: 100%;
+  margin-top: 22px;
+}
+
+.message {
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.switch-form {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #eaf3fb;
+  color: #68798a;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    justify-content: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    width: 92%;
+  }
+
+  .hero {
+    padding: 25px;
+  }
+
+  .form-card {
+    padding: 22px;
+  }
+}
+/* =====================================================================
+   Semantic markup support (pages/dashboard/index.html)
+   ===================================================================== */
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 40;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--blue);
+  color: white;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.nav-links ul,
+.cards,
+.announcement-list {
+  list-style: none;
+}
+
+.nav-links ul,
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links a,
+a.text-btn {
+  display: inline-block;
+  padding: 8px;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--blue);
+  box-shadow: inset 0 -2px 0 var(--blue);
+}
+
+a.text-btn {
+  padding: 0;
+  font-weight: bold;
+}
+
+a.btn-primary,
+a.btn-outline {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: var(--light);
+}
+
+button:disabled {
+  opacity: .65;
+  cursor: progress;
+}
+
+.cards > li {
+  display: flex;
+}
+
+.cards > li > .card {
+  flex: 1;
+}
+
+a.card {
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.announcement-list {
+  display: grid;
+  gap: 14px;
+}
+
+.announcement-list .card h2 {
+  margin-top: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+footer small {
+  font-size: inherit;
+}
